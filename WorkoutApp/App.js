@@ -1,23 +1,28 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import Navigator from './src/Navigation';
+import HRContainerGradient from './src/UI/HRContainers/HRContainerGradient';
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
+      <HRContainerGradient 
+      colors={['#0AB3E4', '#26EDA0']} 
+      start={[1, 0]}
+      end={[0, 1]}
+      style={styles.container}
+      >
+        {/*Since Navigator returns a component, the component will*/}
+        {/*correspond to the current selected component in the navigator*/}
+        <Navigator />
+      
+      </HRContainerGradient>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+   container: {
+      paddingTop: 30
+  }
 });

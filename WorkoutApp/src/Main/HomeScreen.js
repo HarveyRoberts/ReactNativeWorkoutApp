@@ -1,13 +1,18 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import HRTopBar from '../UI/HRTopBars/HRTopBar';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import HRBtn from '../UI/HRButtons/HRBtn';
 
+
 export default class HomeScreen extends React.Component {
+    static navigationOptions = {
+        tabBarIcon: <Icon name="home" size={35} color="#32fcd7" />
+    };
+
+
     render() {
       return (
-        <View style={{ flex: 1 }}> 
-            <HRTopBar title={'Home'} />
+        <View style={{ flex: 1 }}>
             <ScrollView style={{ flex: 1 }}>
                 <View style={styles.centerTextContainer}>
                     <Text style={styles.centerTextSmall}>Current Performance</Text>
@@ -35,7 +40,7 @@ export default class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
     centerTextContainer: {
-        marginTop: 130
+        marginTop: 50
     },
     centerTextBig: {
         color: 'white',

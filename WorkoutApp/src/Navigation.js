@@ -1,9 +1,14 @@
-import { TabNavigator, TabBarBottom, TabBarTop } from 'react-navigation';
+import { TabNavigator, StackNavigator, TabBarBottom, TabBarTop } from 'react-navigation';
 import HomeScreen from './Main/HomeScreen';
 import WorkoutsScreen from './Main/WorkoutsScreen';
+import PerformanceScreen from './Main/PerformanceScreen';
+import ProfileScreen from './Main/ProfileScreen';
 
 
 const Navigator = TabNavigator({
+    ///////////////
+    //HOME PAGE
+    ///////////////
   Home: {
     screen: TabNavigator({
         Workout1: {
@@ -19,6 +24,7 @@ const Navigator = TabNavigator({
             screen: HomeScreen,
         },
     },
+    // Configuration of the home tab bar
     {
         tabBarComponent: TabBarTop,
         tabBarPosition: 'top',
@@ -26,12 +32,10 @@ const Navigator = TabNavigator({
         swipeEnabled: true,
         tabBarOptions: {
             style: {
-                position: 'absolute',
-                backgroundColor: 'transparent',
-                top: 0,
-                left: 0,
-                right: 0,
-                elevation: 0
+                backgroundColor: '#00B9DC',
+                elevation: 0,
+                //So it doesn't mix with the devices top status bar
+                paddingTop: 27
             },
             labelStyle: {
                 fontSize: 12,
@@ -41,16 +45,100 @@ const Navigator = TabNavigator({
     }
     ),
   },
+
+
+    ///////////////
+    //WORKOUTS PAGE
+    ///////////////
   Workouts: {
-    screen: WorkoutsScreen,
+    screen: StackNavigator({
+        Workouts: {
+            screen: WorkoutsScreen
+        }
+    },
+    // Configuration of the workouts stack bar
+    {
+        navigationOptions: {
+            headerStyle: {
+                backgroundColor: '#00B9DC',
+                elevation: 0,
+                height: 75
+            },
+            title: 'Workouts',
+            headerTitleStyle: {
+                color: 'white',
+                alignSelf: 'center',
+                fontSize: 23,
+                fontWeight: '100'
+            }
+        }
+    }
+    ),
   },
-  Pome: {
-    screen: HomeScreen,
+
+
+    ///////////////
+    //Performance PAGE
+    ///////////////
+  Performance: {
+    screen: StackNavigator({
+        Performance: {
+            screen: PerformanceScreen
+        }
+    },
+    // Configuration of the workouts stack bar
+    {
+        navigationOptions: {
+            headerStyle: {
+                backgroundColor: '#00B9DC',
+                elevation: 0,
+                height: 75
+            },
+            title: 'Performance',
+            headerTitleStyle: {
+                color: 'white',
+                alignSelf: 'center',
+                fontSize: 23,
+                fontWeight: '100'
+            }
+        }
+    }
+    ),
   },
-  Lome: {
-    screen: HomeScreen,
+
+
+    ///////////////
+    //Profile PAGE
+    ///////////////
+  Profile: {
+    screen: StackNavigator({
+        Profile: {
+            screen: ProfileScreen
+        }
+    },
+    // Configuration of the workouts stack bar
+    {
+        navigationOptions: {
+            headerStyle: {
+                backgroundColor: '#00B9DC',
+                elevation: 0,
+                height: 75
+            },
+            title: 'Profile',
+            headerTitleStyle: {
+                color: 'white',
+                alignSelf: 'center',
+                fontSize: 23,
+                fontWeight: '100'
+            }
+        }
+    }
+    ),
   },
+
+
 },
+// Configuration of the main tab bar
 {
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',
@@ -59,8 +147,13 @@ const Navigator = TabNavigator({
     tabBarOptions: {
         style: {
             height: 55,
-            padding: 5
+            paddingTop: 5,
+            paddingBottom: 2
         },
+        labelStyle: {
+            fontSize: 12
+        },
+        activeTintColor: '#26d3b3'
     }
 }
 );

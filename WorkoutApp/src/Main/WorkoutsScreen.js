@@ -1,69 +1,87 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import HRTopBar from '../UI/HRTopBars/HRTopBar';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import HRBtn from '../UI/HRButtons/HRBtn';
 
-export default class HomeScreen extends React.Component {
+export default class ProfileScreen extends React.Component {
+    static navigationOptions = {
+        tabBarIcon: <Icon name="dumbbell" size={35} color="#a3a3a3" />
+    };
     render() {
       return (
         <View style={{ flex: 1 }}>
-            <HRTopBar title={'Home'} />
             <ScrollView 
                 style={{ 
                     flex: 1, 
-                    backgroundColor: 'white',
-                    marginTop: 100, 
+                    backgroundColor: 'white', 
                     paddingTop: 20 
                     }}
             >
                 <View>
-                    <Text style={styles.title}>
-                        My Workouts
-                    </Text>
-                    <View style={styles.listItem}>
-                        <Text style={styles.listItemName}>
-                            MyWorkout1
+                    <View style={styles.title}>
+                        <Text style={styles.titleText}>
+                            Choose your workout
                         </Text>
-                        <HRBtn 
-                                xs 
-                                textColor={'white'} 
-                                bgColor={'#3F4448'} 
-                                width={'35%'} 
-                                roundness={50} 
-                                height={40}
-                        >
-                                Do Workout
-                            </HRBtn>
                     </View>
                     <View style={styles.listItem}>
-                        <Text style={styles.listItemName}>
-                            MyWorkout2
+                        <View>
+                            <Text style={styles.listItemName}>
+                                MyWorkout1
+                            </Text>
+                        </View>
+                        <Text style={styles.listItemPressToWorkoutText}>
+                            PRESS TO WORKOUT
                         </Text>
                         <HRBtn 
                                 xs 
                                 textColor={'white'} 
                                 bgColor={'#3F4448'} 
-                                width={'35%'} 
+                                width={'25%'} 
                                 roundness={50} 
                                 height={40}
                         >
-                                Do Workout
-                            </HRBtn>
+                                Edit
+                        </HRBtn>
                     </View>
                     <View style={styles.listItem}>
-                        <Text style={styles.listItemName}>
-                            MyWorkout3
+                        <View>
+                            <Text style={styles.listItemName}>
+                                MyWorkout1
+                            </Text>
+                        </View>
+                        <Text style={styles.listItemPressToWorkoutText}>
+                            PRESS TO WORKOUT
                         </Text>
                         <HRBtn 
                                 xs 
                                 textColor={'white'} 
                                 bgColor={'#3F4448'} 
-                                width={'35%'} 
+                                width={'25%'} 
                                 roundness={50} 
                                 height={40}
                         >
-                                Do Workout
-                            </HRBtn>
+                                Edit
+                        </HRBtn>
+                    </View>
+                    <View style={styles.listItem}>
+                        <View>
+                            <Text style={styles.listItemName}>
+                                MyWorkout1
+                            </Text>
+                        </View>
+                        <Text style={styles.listItemPressToWorkoutText}>
+                            PRESS TO WORKOUT
+                        </Text>
+                        <HRBtn 
+                                xs 
+                                textColor={'white'} 
+                                bgColor={'#3F4448'} 
+                                width={'25%'} 
+                                roundness={50} 
+                                height={40}
+                        >
+                                Edit
+                        </HRBtn>
                     </View>
                 </View>
             </ScrollView> 
@@ -74,21 +92,33 @@ export default class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
     title: {
+        justifyContent: 'center',
+        borderBottomWidth: 2,
+        borderBottomColor: '#F3F3F3',
+        paddingBottom: 30
+    },
+    titleText: {
         color: 'grey',
         fontSize: 22,
-        alignSelf: 'center'
+        alignSelf: 'center',
     },
     listItem: {
         flexDirection: 'row',
-        marginTop: 10,
+        justifyContent: 'space-between',
+        marginTop: 4,
+        marginBottom: 4,
         paddingLeft: 20,
-        paddingRight: 20,
-        backgroundColor: '#EAEBEA'
+        borderBottomWidth: 2,
+        borderBottomColor: '#F3F3F3'
     },
     listItemName: {
-        width: '65%',
         marginTop: 18,
-        fontSize: 17
+        fontSize: 18
+    },
+    listItemPressToWorkoutText: {
+        marginTop: 19,
+        fontSize: 16,
+        color: '#efefef'
     }
 });
 

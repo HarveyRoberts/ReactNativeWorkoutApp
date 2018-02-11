@@ -8,7 +8,7 @@ export default class App extends React.Component {
     return (
       <HRContainerGradient 
       colors={['#0AB3E4', '#26EDA0']} 
-      start={[1, 0]}
+      start={[0, 0]}
       end={[0, 1]}
       style={styles.container}
       >
@@ -23,6 +23,6 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
    container: {
-      paddingTop: 30
+      //paddingTop: 30
   }
 });

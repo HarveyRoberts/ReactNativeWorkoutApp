@@ -30,7 +30,7 @@ export default class ProfileScreen extends React.Component {
                             </Text>
                         </View>
                         <Text style={styles.listItemPressToWorkoutText}>
-                            PRESS TO WORKOUT
+                            {'PRESS\nTO\nWORKOUT'}
                         </Text>
                         <HRBtn 
                                 xs 
@@ -50,7 +50,7 @@ export default class ProfileScreen extends React.Component {
                             </Text>
                         </View>
                         <Text style={styles.listItemPressToWorkoutText}>
-                            PRESS TO WORKOUT
+                            {'PRESS\nTO\nWORKOUT'}
                         </Text>
                         <HRBtn 
                                 xs 
@@ -70,7 +70,7 @@ export default class ProfileScreen extends React.Component {
                             </Text>
                         </View>
                         <Text style={styles.listItemPressToWorkoutText}>
-                            PRESS TO WORKOUT
+                            {'PRESS\nTO\nWORKOUT'}
                         </Text>
                         <HRBtn 
                                 xs 
@@ -116,8 +116,9 @@ const styles = StyleSheet.create({
         fontSize: 18
     },
     listItemPressToWorkoutText: {
-        marginTop: 19,
-        fontSize: 16,
+        fontSize: 15,
+        letterSpacing: 0,
+        textAlign: 'center',
         color: '#efefef'
     }
 });

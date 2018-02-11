@@ -32,10 +32,12 @@ const Navigator = TabNavigator({
         swipeEnabled: true,
         tabBarOptions: {
             style: {
-                backgroundColor: '#00B9DC',
+                backgroundColor: '#00BBDA',
                 elevation: 0,
                 //So it doesn't mix with the devices top status bar
-                paddingTop: 27
+                paddingTop: 27,
+                //For IOS
+                shadowOpacity: 0
             },
             labelStyle: {
                 fontSize: 12,
@@ -60,7 +62,7 @@ const Navigator = TabNavigator({
     {
         navigationOptions: {
             headerStyle: {
-                backgroundColor: '#00B9DC',
+                backgroundColor: '#00BBDA',
                 elevation: 0,
                 height: 75
             },
@@ -90,7 +92,7 @@ const Navigator = TabNavigator({
     {
         navigationOptions: {
             headerStyle: {
-                backgroundColor: '#00B9DC',
+                backgroundColor: '#00BBDA',
                 elevation: 0,
                 height: 75
             },
@@ -120,7 +122,7 @@ const Navigator = TabNavigator({
     {
         navigationOptions: {
             headerStyle: {
-                backgroundColor: '#00B9DC',
+                backgroundColor: '#00BBDA',
                 elevation: 0,
                 height: 75
             },

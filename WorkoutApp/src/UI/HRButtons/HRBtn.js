@@ -1,52 +1,75 @@
 import React from 'react';
 import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 
-const HRBtn = props => (
+export default class HRBtn extends React.Component {
+    //If we don't give specify the prop visible or
+    //give visible a value different to 'hidden' when
+    //using this component then we set our property 
+    //visible in our state to true
+    state = { visible: (this.props.visible !== 'hidden') };
 
-    <TouchableOpacity 
-        onPress={props.onPress} 
-        style={[
-            styles.ButtonContainer, 
-            /* Set medium by default */
-            styles.ButtonMedium,
-            /* Optional props */
-            /* If we type add the xl prop to the component the styles.ButtonXL will be used */
-            props.xl && styles.ButtonXL, 
-            props.large && styles.ButtonBig, 
-            props.small && styles.ButtonSmall, 
-            props.medium && styles.ButtonMedium,
-            props.xs && styles.ButtonXS, 
-            /* Setting some styles up and passing them through props */ 
-            { 
-                alignSelf: props.alignSelf, 
-                borderRadius: props.roundness, 
-                backgroundColor: props.bgColor, 
-                height: props.height,
-                width: props.width 
-            }
-        ]} 
-    >
-        <View>
-            <Text 
+    isVisible() {
+        //We show the button if visible is true in our state
+        //(i.e we haven't passed 'hidden' as a value for the prop visible)
+        if (this.state.visible) {
+            return (
+                <TouchableOpacity 
+                onPress={this.props.onPress} 
                 style={[
+                    styles.ButtonContainer, 
+                    this.props.style,
                     /* Set medium by default */
-                    styles.TextMedium,
+                    styles.ButtonMedium,
                     /* Optional props */
-                    props.xl && styles.TextXL,
-                    props.large && styles.TextBig, 
-                    props.small && styles.TextSmall, 
-                    props.medium && styles.TextMedium, 
-                    props.xs && styles.TextXS,
-                    /* Setting the value of the color style and passing it through props */ 
-                    { color: props.textColor }
-                ]}
-            >
-                {/* Pass the content of the text through props */}
-                {props.children}
-            </Text>
-        </View>
-    </TouchableOpacity>
-);
+                    /* If we type add the xl prop to the component the styles.ButtonXL will be used */
+                    this.props.xl && styles.ButtonXL, 
+                    this.props.large && styles.ButtonBig, 
+                    this.props.small && styles.ButtonSmall, 
+                    this.props.medium && styles.ButtonMedium,
+                    this.props.xs && styles.ButtonXS, 
+                    /* Setting some styles up and passing them through props */ 
+                    { 
+                        alignSelf: this.props.alignSelf, 
+                        borderRadius: this.props.roundness, 
+                        backgroundColor: this.props.bgColor, 
+                        height: this.props.height,
+                        width: this.props.width
+                    }
+                ]} 
+                >
+                    <View>
+                        <Text 
+                            style={[
+                                /* Set medium by default */
+                                styles.TextMedium,
+                                /* Optional props */
+                                this.props.xl && styles.TextXL,
+                                this.props.large && styles.TextBig, 
+                                this.props.small && styles.TextSmall, 
+                                this.props.medium && styles.TextMedium, 
+                                this.props.xs && styles.TextXS,
+                                /* Setting the value of the color style and passing it through props */ 
+                                { color: this.props.textColor }
+                            ]}
+                        >
+                            {/* Pass the content of the text through props */}
+                            {this.props.children}
+                        </Text>
+                    </View>
+                </TouchableOpacity>
+            );
+        }
+        //If not we return null since the return block in our render method needs 
+        //at least something or null
+        return null;
+    }
+    render() {
+        return (
+            //condition render of the button depending on the prop visible
+            this.isVisible()
+        );
+    }
+}
 
 const styles = StyleSheet.create({
     /* Container styles */
@@ -102,7 +125,4 @@ const styles = StyleSheet.create({
         marginRight: '3%'
     }
 });
-
-
-export default HRBtn;
 

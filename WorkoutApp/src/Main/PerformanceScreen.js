@@ -17,6 +17,9 @@ export default class PerformanceScreen extends React.Component {
                     paddingTop: 20 
                     }}
             >
+                <View>
+                    
+                </View>
             </ScrollView> 
         </View>   
       );

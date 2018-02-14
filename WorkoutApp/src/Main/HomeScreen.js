@@ -36,7 +36,7 @@ export default class HomeScreen extends React.Component {
         </View>    
       );
     }
-  }
+}
 
 const styles = StyleSheet.create({
     centerTextContainer: {
@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
         marginTop: 30,
         backgroundColor: 'white',
         height: 800,
-        borderRadius: 60
+        borderTopLeftRadius: 60,
+        borderTopRightRadius: 60
     },
     bottomContainerTitle: {
         marginTop: 20,

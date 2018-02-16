@@ -1,13 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import HRBtn from '../UI/HRButtons/HRBtn';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import HRListItem from '../UI/HRLists/HRListItems/HRListItem';
 
 export default class ProfileScreen extends React.Component {
-    static navigationOptions = {
-        tabBarIcon: <Icon name="dumbbell" size={35} color="#a3a3a3" />
-    };
     render() {
       return (
         <View style={{ flex: 1 }}>

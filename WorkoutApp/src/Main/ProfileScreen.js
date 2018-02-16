@@ -1,14 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import HRBtn from '../UI/HRButtons/HRBtn';
 import HRContainerGradient from '../UI/HRContainers/HRContainerGradient';
 import HRListItem from '../UI/HRLists/HRListItems/HRListItem';
 
 export default class ProfileScreen extends React.Component {
-    static navigationOptions = {
-        tabBarIcon: <Icon name="user" size={35} color="#a3a3a3" />,
-    };
     render() {
       return (
         <View style={{ flex: 1 }}>
@@ -21,7 +17,8 @@ export default class ProfileScreen extends React.Component {
                     <View style={styles.profileCircle}>
                         <Image 
                             style={styles.profileImage} 
-                            source={{ uri: 'https://cdn0.iconfinder.com/data/icons/users-android-l-lollipop-icon-pack/24/user-256.png' }} />
+                            source={{ uri: 'https://cdn0.iconfinder.com/data/icons/users-android-l-lollipop-icon-pack/24/user-256.png' }} 
+                        />
                     </View>
                 </View>
                 <Text style={styles.profileUsersName} >
@@ -36,7 +33,11 @@ export default class ProfileScreen extends React.Component {
                     }}
             >
             <HRListItem title={'Name:'} secondTitle='Harvey' />
-            <HRListItem title={'Email:'} secondTitle={'email.email@email.com'} secondTitleWidth={'50%'} />
+            <HRListItem 
+            title={'Email:'} 
+            secondTitle={'email.email@email.com'} 
+            secondTitleWidth={'50%'} 
+            />
             <HRListItem title={'Birthday:'} secondTitle='28/04/1998' />
             </ScrollView> 
         </View>   

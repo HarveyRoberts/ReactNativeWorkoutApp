@@ -5,10 +5,9 @@ import HRBtn from '../UI/HRButtons/HRBtn';
 
 
 export default class HomeScreen extends React.Component {
-    static navigationOptions = {
-        tabBarIcon: <Icon name="home" size={35} color="#32fcd7" />
-    };
-
+    loadWorkout() {
+        this.props.navigation.navigate('');
+    }
 
     render() {
       return (
@@ -24,7 +23,8 @@ export default class HomeScreen extends React.Component {
                         width={'48%'} 
                         roundness={50} 
                         alignSelf={'center'} 
-                        height={40}
+                        height={45}
+                        
                     >
                         Do Workout
                     </HRBtn>

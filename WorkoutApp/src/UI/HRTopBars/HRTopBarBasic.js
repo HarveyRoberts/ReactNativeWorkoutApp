@@ -25,7 +25,8 @@ export default class HRTopBarBasic extends Component {
           {
             backgroundColor: this.props.bgColor,
             borderBottomColor: this.props.borderBottomColor || '#7FE5EA',
-          }
+          },
+          this.props.raised && styles.raised
       ]}
       >
           <TouchableOpacity
@@ -69,5 +70,11 @@ const styles = StyleSheet.create({
     fontSize: 21,
     color: '#B9FCFE',
     marginTop: 5
+  },
+  raised: {
+    elevation: 5,
+    shadowOffset: { height: 4 },
+    shadowColor: 'black',
+    shadowOpacity: 0.4
   }
 });

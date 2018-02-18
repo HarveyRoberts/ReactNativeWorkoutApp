@@ -7,7 +7,7 @@ const HRHexagon = (props) => (
      * height: height of the hexagon
      * color: color of the hexagon
      * style: style of the hexagon
-     * children: child components inside hexagon
+     * children: child components 
      */
     <Svg
     width={props.width}
@@ -19,14 +19,8 @@ const HRHexagon = (props) => (
         <Svg.Polygon 
         points="0,25 50,0 100,25 100,75 50,100 0,75"
         fill={props.color} 
-        >
-        <Svg.Circle
-        cx="50"
-        cy="50"
-        r="50"
-        fill="pink"
-    />
-        </Svg.Polygon>
+        />
+        {props.children}
     </Svg>
 );
 

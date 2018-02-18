@@ -12,7 +12,7 @@ export default class ProfileScreen extends React.Component {
           colors={['#0AB3E4', '#26EDA0']} 
           start={[1, 0]}
           end={[0, 1]}
-          style={{ flex: 1, paddingTop: 80 }}
+          style={{ flex: 1, paddingTop: 82 }}
         >
           <View style={styles.outerProfileCircle}>
             <View style={styles.profileCircle}>

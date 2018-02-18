@@ -12,7 +12,7 @@ export default class ProfileScreen extends React.Component {
         end={[0, 1]}
         //Added padding to the top to leave space for header
         //since the header is in position absolute
-        style={{ flex: 1, paddingTop: 80 }}
+        style={{ flex: 1, paddingTop: 83 }}
       >
         <ScrollView
           style={{

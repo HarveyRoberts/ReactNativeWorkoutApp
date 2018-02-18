@@ -13,8 +13,9 @@ export default class HRTopBarBasic extends Component {
      * rightIconName: The name of the right icon
      * rightIconSize: The size of the right icon
      * rightIconColor: The color of the right icon
-     * title: the title of the header
+     * title: The title of the header
      * bgColor: Background color of the header
+     * borderBottomColor: The border width of the header
      */
   render() {
     return (
@@ -22,11 +23,11 @@ export default class HRTopBarBasic extends Component {
       style={[
           styles.container,
           {
-              backgroundColor: this.props.bgColor
+            backgroundColor: this.props.bgColor,
+            borderBottomColor: this.props.borderBottomColor || '#7FE5EA',
           }
       ]}
       >
-          {/*Invisible icon to make placement with flex easier*/}
           <TouchableOpacity
           onPress={this.props.onPressLeftIcon}
           >
@@ -34,7 +35,6 @@ export default class HRTopBarBasic extends Component {
               name={this.props.leftIconName}
               size={this.props.leftIconSize}
               color={this.props.leftIconColor}
-              //style={styles.doWorkoutTabIcon}
             />
           </TouchableOpacity>
           <Text style={styles.title}>{this.props.title}</Text>
@@ -45,7 +45,6 @@ export default class HRTopBarBasic extends Component {
               name={this.props.rightIconName}
               size={this.props.rightIconSize}
               color={this.props.rightIconColor}
-              //style={styles.doWorkoutTabIcon}
             />
           </TouchableOpacity>
       </View>
@@ -63,7 +62,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: '100%',
     position: 'absolute',
-    top: 0
+    top: 0,
+    borderBottomWidth: 2
   },
   title: {
     fontSize: 21,

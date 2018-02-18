@@ -6,9 +6,9 @@ import PerformanceScreen from './Main/PerformanceScreen';
 import ProfileScreen from './Main/ProfileScreen';
 import DoWorkoutScreen from './Main/DoWorkoutScreen';
 import HRTabBar from './UI/HRTabBars/HRTabBar';
+import HRTopBarWithTabsNonReusable from './UI/HRTopBars/HRTopBarWithTabsNonReusable';
 import HRTopBarWithTabs from './UI/HRTopBars/HRTopBarWithTabs';
 import HRTopBarBasic from './UI/HRTopBars/HRTopBarBasic';
-
 
 const Navigator = TabNavigator({
     ///////////////
@@ -31,7 +31,7 @@ const Navigator = TabNavigator({
         },
         // Configuration of the home tab bar
         {
-            tabBarComponent: HRTopBarWithTabs,
+            tabBarComponent: HRTopBarWithTabsNonReusable,
             tabBarPosition: 'top',
             animationEnabled: true,
             swipeEnabled: true
@@ -73,19 +73,28 @@ const Navigator = TabNavigator({
     //PERFORMANCE PAGE
     ///////////////
     Perf: {
-        screen: StackNavigator({
-            Performance: {
+        screen: TabNavigator({
+            General: {
+                screen: PerformanceScreen
+            },
+            'Per Body Part': {
+                screen: PerformanceScreen
+            },
+            Achievements: {
                 screen: PerformanceScreen
             }
         },
         // Configuration of the perfomance stack bar
         {
-            navigationOptions: {
-                header: <HRTopBarBasic 
+            tabBarComponent: ({ navigation, navigationState }) => 
+                <HRTopBarWithTabs 
                     title='Performance' 
-                    bgColor='transparent'
-                />
-            }
+                    navigation={navigation} 
+                    navigationState={navigationState} 
+                />,
+            tabBarPosition: 'top',
+            animationEnabled: true,
+            swipeEnabled: true
         }
         ),
     },
@@ -105,6 +114,7 @@ const Navigator = TabNavigator({
             navigationOptions: {
                 header: <HRTopBarBasic 
                     title='Profile' 
+                    borderBottomColor='transparent'
                     bgColor='transparent'
                 />
             }

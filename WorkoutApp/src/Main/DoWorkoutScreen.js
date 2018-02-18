@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
         elevation: 3
     },
     percentage: {
-        fontSize: 60,
+        fontSize: 57,
         color: 'white',
     },
     exerciceTitle: {

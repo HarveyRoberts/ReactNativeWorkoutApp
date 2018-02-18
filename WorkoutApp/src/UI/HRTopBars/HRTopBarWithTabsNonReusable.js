@@ -3,19 +3,8 @@ import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
-export default class HRTopBarWithTabs extends Component {
-    /**PROPS:
-     * onPressLeftIcon: The press event for the left icon
-     * leftIconName: The name of the left icon
-     * leftIconSize: The size of the left icon
-     * leftIconColor: The color of the left icon
-     * onPressRightIcon: The press event for the right icon
-     * rightIconName: The name of the right icon
-     * rightIconSize: The size of the right icon
-     * rightIconColor: The color of the right icon
-     * title: the title of the header
-     * //bgColor: Background color of the header
-     */
+/**THIS COMPONENT IS NOT CUSTOMIZABLE*/
+export default class HRTopBarWithTabsNonReusable extends Component {
   render() {
     const navigation = this.props.navigation;
     const { routes, index } = this.props.navigationState;
@@ -23,28 +12,31 @@ export default class HRTopBarWithTabs extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.topSection}>
-            <TouchableOpacity
-            onPress={this.props.onPressLeftIcon}
-            >
-                <Icon
-                name={this.props.leftIconName}
-                size={this.props.leftIconSize}
-                color={this.props.leftIconColor}
-                />
-            </TouchableOpacity>
-            <Text style={styles.title}>{this.props.title}</Text>
-            <TouchableOpacity
-            onPress={this.props.onPressRightIcon}
-            >
-                <Icon
-                name={this.props.rightIconName}
-                size={this.props.rightIconSize}
-                color={this.props.rightIconColor}
-                />
+          {/*Invisible icon to make placement with flex easier*/}
+          <TouchableOpacity>
+            <Icon
+              name={'menu'}
+              size={31}
+              color={'white'}
+              //style={styles.doWorkoutTabIcon}
+            />
+          </TouchableOpacity>
+          <Text style={styles.title}>HOME</Text>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Home');
+            }}
+          >
+            <Icon
+              name={'tune'}
+              size={30}
+              color={'white'}
+              //style={styles.doWorkoutTabIcon}
+            />
           </TouchableOpacity>
         </View>
         <View style={styles.tabContainer}>
-          {/*For every route in routes will will display a button*/}
+          {/*For every route in routes will will display a button and*/}
           {routes.map((route, currentIndex) => {
             const color = index === currentIndex ? '#7FE5EA' : '#4FD6DB';
             return (

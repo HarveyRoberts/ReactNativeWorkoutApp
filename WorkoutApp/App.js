@@ -7,7 +7,7 @@ export default class App extends React.Component {
   render() {
     return (
       <HRContainerGradient 
-      colors={['#0AB3E4', '#26EDA0']} 
+      colors={['#009ee8', '#16ff9e']} 
       start={[1, 0]}
       end={[0, 1]}
       style={styles.container}

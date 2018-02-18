@@ -61,8 +61,10 @@ const styles = StyleSheet.create({
         marginTop: 30,
         backgroundColor: 'white',
         height: 800,
-        borderTopLeftRadius: 60,
-        borderTopRightRadius: 60
+        width: '300%',
+        borderTopLeftRadius: 800,
+        borderTopRightRadius: 800,
+        alignSelf: 'center'
     },
     bottomContainerTitle: {
         marginTop: 20,

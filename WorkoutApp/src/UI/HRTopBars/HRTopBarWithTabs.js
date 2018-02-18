@@ -87,6 +87,6 @@ const styles = StyleSheet.create({
   tabText: {
     marginTop: 14,
     fontSize: 12,
-    color: '#A1F9FE'
+    color: '#baf9fc'
   }
 });

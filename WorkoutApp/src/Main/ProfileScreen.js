@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   profileUsersName: {
     color: 'white',
     alignSelf: 'center',
-    fontSize: 25,
+    fontSize: 22,
     fontWeight: 'bold',
     textAlign: 'center'
   }

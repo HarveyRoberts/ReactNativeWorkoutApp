@@ -22,7 +22,7 @@ export default class DoWorkoutScreen extends React.Component {
                 </View>
                 <View style={styles.percentageContainer}>
                     <View style={styles.percentageProgressCircle}>
-                        <Text style={styles.percentage}>76%</Text>
+                        <Text style={styles.percentage}>100%</Text>
                     </View>
                 </View>
                 <Text style={styles.exerciceTitle}>Crunches x25</Text>
@@ -70,10 +70,10 @@ const styles = StyleSheet.create({
         borderRadius: 500,
         height: 170,
         width: 170,
-        elevation: 10
+        elevation: 3
     },
     percentage: {
-        fontSize: 65,
+        fontSize: 60,
         color: 'white',
     },
     exerciceTitle: {

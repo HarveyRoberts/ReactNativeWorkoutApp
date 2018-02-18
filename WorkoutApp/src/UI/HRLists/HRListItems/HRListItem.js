@@ -60,16 +60,22 @@ export default class HRListItem extends React.Component {
                     <HRBtn 
                             xs 
                             textColor={this.props.rightBtnTextColor || 'white'} 
-                            bgColor={this.props.rightBtnBgColor || '#3F4448'} 
-                            width={'25%'} 
+                            bgColor={this.props.rightBtnBgColor || '#3F6570'} 
+                            width={'21%'} 
                             roundness={this.props.rightBtnRoundness || 50} 
-                            height={40}
+                            height={35}
                             onPress={this.props.onRightBtnPress}
                             //If we don't specify the prop rightBtn
                             //then we pass 'hidden' as a prop to HRBtn
                             //which will not render it
                             visible={this.props.rightBtn || 'hidden'}
-                            style={[{ marginBottom: 'auto', marginTop: 'auto' }, this.props.rightBtnstyle]}
+                            style={[
+                            { 
+                                    marginBottom: 'auto', 
+                                    marginTop: 'auto' 
+                            }, 
+                            this.props.rightBtnstyle
+                            ]}
                     >
                             {this.props.rightBtnText || 'Button'}
                     </HRBtn>

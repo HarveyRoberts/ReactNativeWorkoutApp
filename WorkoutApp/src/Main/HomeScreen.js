@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import HRBtn from '../UI/HRButtons/HRBtn';
 
 
@@ -19,12 +18,12 @@ export default class HomeScreen extends React.Component {
                     <HRBtn 
                         small 
                         textColor={'white'} 
-                        bgColor={'#3F4448'} 
+                        bgColor={'#3F6570'} 
                         width={'48%'} 
                         roundness={50} 
                         alignSelf={'center'} 
                         height={45}
-                        
+                        style={styles.doWorkoutBtn}
                     >
                         Do Workout
                     </HRBtn>
@@ -40,7 +39,7 @@ export default class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
     centerTextContainer: {
-        marginTop: 50
+        marginTop: 30
     },
     centerTextBig: {
         color: 'white',
@@ -51,6 +50,12 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 15,
         alignSelf: 'center'
+    },
+    doWorkoutBtn: {
+        elevation: 3,
+        shadowOffset: { height: 4 },
+        shadowColor: 'black',
+        shadowOpacity: 0.4,
     },
     bottomContainer: {
         marginTop: 30,

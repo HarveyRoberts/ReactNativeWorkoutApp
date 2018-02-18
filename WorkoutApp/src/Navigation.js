@@ -1,12 +1,13 @@
-import { TabNavigator, StackNavigator, TabBarTop } from 'react-navigation';
-import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
+import { TabNavigator, StackNavigator } from 'react-navigation';
+import React from 'react';
 import HomeScreen from './Main/HomeScreen';
 import WorkoutsScreen from './Main/WorkoutsScreen';
 import PerformanceScreen from './Main/PerformanceScreen';
 import ProfileScreen from './Main/ProfileScreen';
 import DoWorkoutScreen from './Main/DoWorkoutScreen';
 import HRTabBar from './UI/HRTabBars/HRTabBar';
-
+import HRTopBarWithTabs from './UI/HRTopBars/HRTopBarWithTabs';
+import HRTopBarBasic from './UI/HRTopBars/HRTopBarBasic';
 
 const Navigator = TabNavigator({
     ///////////////
@@ -29,24 +30,10 @@ const Navigator = TabNavigator({
         },
         // Configuration of the home tab bar
         {
-            tabBarComponent: TabBarTop,
+            tabBarComponent: HRTopBarWithTabs,
             tabBarPosition: 'top',
             animationEnabled: true,
-            swipeEnabled: true,
-            tabBarOptions: {
-                style: {
-                    backgroundColor: '#00BBDA',
-                    elevation: 0,
-                    //So it doesn't mix with the devices top status bar
-                    paddingTop: 27,
-                    //For IOS
-                    shadowOpacity: 0
-                },
-                labelStyle: {
-                    fontSize: 12,
-                    color: 'white'
-                },
-            }
+            swipeEnabled: true
         }
         ),
     },
@@ -64,18 +51,12 @@ const Navigator = TabNavigator({
         // Configuration of the workouts stack bar
         {
             navigationOptions: {
-                headerStyle: {
-                    backgroundColor: '#00BBDA',
-                    elevation: 0,
-                    height: 75
-                },
                 title: 'Workouts',
-                headerTitleStyle: {
-                    color: 'white',
-                    alignSelf: 'center',
-                    fontSize: 23,
-                    fontWeight: '100'
-                }
+            header: (<HRTopBarBasic 
+                navigation={this.navigation} 
+                title='Workouts' 
+                bgColor='transparent'
+            />)
             }
         }
         ),
@@ -92,7 +73,7 @@ const Navigator = TabNavigator({
     ///////////////
     //PERFORMANCE PAGE
     ///////////////
-    Performance: {
+    Perf: {
         screen: StackNavigator({
             Performance: {
                 screen: PerformanceScreen
@@ -106,7 +87,7 @@ const Navigator = TabNavigator({
                     elevation: 0,
                     height: 75
                 },
-                title: 'Performance',
+                title: 'Peformance',
                 headerTitleStyle: {
                     color: 'white',
                     alignSelf: 'center',
@@ -154,29 +135,14 @@ const Navigator = TabNavigator({
 {
     tabBarComponent: HRTabBar,
     tabBarPosition: 'bottom',
+    swipeEnabled: false, 
     animationEnabled: false,
-    swipeEnabled: false,
     tabBarOptions: {
         labelStyle: {
             fontSize: 12
         },
         activeTintColor: '#26d3b3'
-    },
-    navigationOptions: {
-        transitionSpec: {
-          duration: 900,
-        },
-        transitionConfig: () => ({
-          screenInterpolator: props => {
-            // Transitioning to search screen (navigate)
-            if (props.scene.route.routeName === 'DoWorkout') {
-              return CardStackStyleInterpolator.forFade(props);
-            }
-      
-            return CardStackStyleInterpolator.forHorizontal(props);
-          },
-        }),
-      }
+    }
 }
 );
 

@@ -16,7 +16,12 @@ showText(route, color, currentIndex, index) {
     if (route.routeName !== 'DoWorkout') {
         return (
           <View>
-            <Icon name={this.state.icons[currentIndex]} size={35} color={index === currentIndex ? '#19D3BD' : 'gray'} style={styles.doWorkoutTabIcon} />
+            <Icon 
+            name={this.state.icons[currentIndex]} 
+            size={35} 
+            color={index === currentIndex ? '#19D3BD' : 'gray'} 
+            style={styles.doWorkoutTabIcon} 
+            />
             <Text style={[styles.tabText, { color }]}>
                 {/* I want to display the navigationOptions.title here*/}
                 {route.routeName}
@@ -43,7 +48,9 @@ showText(route, color, currentIndex, index) {
           return (
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate(route.routeName);
+                if (route.routeName !== routes[index].routeName) {
+                  navigation.navigate(route.routeName);
+                }
               }}
               style={styles.tab}
               key={route.routeName}
@@ -59,9 +66,9 @@ showText(route, color, currentIndex, index) {
 
 const styles = StyleSheet.create({
   tabContainer: {
-      backgroundColor: 'white',
+    backgroundColor: 'white',
     flexDirection: 'row',
-    height: 60,
+    height: 60
   },
   tab: {
     borderTopWidth: 1,
@@ -71,13 +78,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   tabText: {
-      fontSize: 11
+      fontSize: 11,
+      textAlign: 'center'
   },
   doWorkoutTab: {
       borderRadius: 500,
       backgroundColor: '#19D3BD',
-      height: 57,
-      width: 57,
+      height: 50,
+      width: 50,
       justifyContent: 'center'
   },
   doWorkoutTabIcon: {

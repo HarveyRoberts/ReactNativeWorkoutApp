@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, ScrollView } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { View, ScrollView, Text } from 'react-native';
 
 
 export default class PerformanceScreen extends React.Component {
@@ -15,7 +14,7 @@ export default class PerformanceScreen extends React.Component {
                     }}
             >
                 <View >  
-                    
+                    <Text>HI</Text>
                 </View>
             </ScrollView> 
         </View>   

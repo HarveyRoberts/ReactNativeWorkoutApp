@@ -6,11 +6,13 @@ import HRListItem from '../UI/HRLists/HRListItems/HRListItem';
 export default class ProfileScreen extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      //Added padding to the top to leave space for header
+      //since the header is in position absolute
         <HRContainerGradient
           colors={['#0AB3E4', '#26EDA0']} 
           start={[1, 0]}
           end={[0, 1]}
+          style={{ flex: 1, paddingTop: 80 }}
         >
           <View style={styles.outerProfileCircle}>
             <View style={styles.profileCircle}>
@@ -24,23 +26,23 @@ export default class ProfileScreen extends React.Component {
             </View>
           </View>
           <Text style={styles.profileUsersName}>{'Harvey\nRoberts'}</Text>
+          <ScrollView
+            style={{
+              flex: 1,
+              backgroundColor: 'white',
+              marginTop: 20,
+              paddingTop: 15
+            }}
+          >
+            <HRListItem title={'Name:'} secondTitle="Harvey" />
+            <HRListItem
+              title={'Email:'}
+              secondTitle={'email.email@email.com'}
+              secondTitleWidth={'50%'}
+            />
+            <HRListItem title={'Birthday:'} secondTitle="28/04/1998" />
+          </ScrollView>
         </HRContainerGradient>
-        <ScrollView
-          style={{
-            flex: 1,
-            backgroundColor: 'white',
-            paddingTop: 20
-          }}
-        >
-          <HRListItem title={'Name:'} secondTitle="Harvey" />
-          <HRListItem
-            title={'Email:'}
-            secondTitle={'email.email@email.com'}
-            secondTitleWidth={'50%'}
-          />
-          <HRListItem title={'Birthday:'} secondTitle="28/04/1998" />
-        </ScrollView>
-      </View>
     );
   }
 }
@@ -65,7 +67,6 @@ const styles = StyleSheet.create({
   },
   outerProfileCircle: {
     marginBottom: 10,
-    marginTop: 20,
     borderRadius: 150,
     backgroundColor: 'white',
     width: 155,

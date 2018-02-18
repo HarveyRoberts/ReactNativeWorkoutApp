@@ -9,6 +9,7 @@ import HRTabBar from './UI/HRTabBars/HRTabBar';
 import HRTopBarWithTabs from './UI/HRTopBars/HRTopBarWithTabs';
 import HRTopBarBasic from './UI/HRTopBars/HRTopBarBasic';
 
+
 const Navigator = TabNavigator({
     ///////////////
     //HOME PAGE
@@ -51,12 +52,10 @@ const Navigator = TabNavigator({
         // Configuration of the workouts stack bar
         {
             navigationOptions: {
-                title: 'Workouts',
-            header: (<HRTopBarBasic 
-                navigation={this.navigation} 
-                title='Workouts' 
-                bgColor='transparent'
-            />)
+                header: <HRTopBarBasic 
+                    title='Workouts' 
+                    bgColor='transparent'
+                />
             }
         }
         ),
@@ -79,21 +78,13 @@ const Navigator = TabNavigator({
                 screen: PerformanceScreen
             }
         },
-        // Configuration of the workouts stack bar
+        // Configuration of the perfomance stack bar
         {
             navigationOptions: {
-                headerStyle: {
-                    backgroundColor: '#00BBDA',
-                    elevation: 0,
-                    height: 75
-                },
-                title: 'Peformance',
-                headerTitleStyle: {
-                    color: 'white',
-                    alignSelf: 'center',
-                    fontSize: 23,
-                    fontWeight: '100'
-                }
+                header: <HRTopBarBasic 
+                    title='Performance' 
+                    bgColor='transparent'
+                />
             }
         }
         ),
@@ -109,21 +100,13 @@ const Navigator = TabNavigator({
                 screen: ProfileScreen
             }
         },
-        // Configuration of the workouts stack bar
+        // Configuration of the profile stack bar
         {
             navigationOptions: {
-                headerStyle: {
-                    backgroundColor: '#00BBDA',
-                    elevation: 0,
-                    height: 75
-                },
-                title: 'Profile',
-                headerTitleStyle: {
-                    color: 'white',
-                    alignSelf: 'center',
-                    fontSize: 23,
-                    fontWeight: '100'
-                }
+                header: <HRTopBarBasic 
+                    title='Profile' 
+                    bgColor='transparent'
+                />
             }
         }
         ),

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import HRListItem from '../UI/HRLists/HRListItems/HRListItem';
+import HRCard from '../UI/HRCards/HRCard';
 import HRContainerGradient from '../UI/HRContainers/HRContainerGradient';
 
 export default class ProfileScreen extends React.Component {
@@ -12,44 +12,25 @@ export default class ProfileScreen extends React.Component {
         end={[0, 1]}
         //Added padding to the top to leave space for header
         //since the header is in position absolute
-        style={{ flex: 1, paddingTop: 83 }}
+        style={{ flex: 1 }}
       >
-        <ScrollView
+          <View
           style={{
             backgroundColor: 'white',
-            paddingTop: 20
+            paddingTop: 50,
+            flex: 1 
           }}
-        >
-          <View>
+          >
             <View style={styles.title}>
               <Text style={styles.titleText}>Choose your workout</Text>
             </View>
-            <HRListItem
-              rightBtnText={'Edit'}
-              hint={'Press To Workout'}
-              title={'Ab workout'}
-              rightBtn
-            />
-            <HRListItem
-              rightBtnText={'Edit'}
-              hint={'Press To Workout'}
-              title={'Easy Full Body workout'}
-              rightBtn
-            />
-            <HRListItem
-              rightBtnText={'Edit'}
-              hint={'Press To Workout'}
-              title={'Chest Workout'}
-              rightBtn
-            />
-            <HRListItem
-              rightBtnText={'Edit'}
-              hint={'Press To Workout'}
-              title={'Arm workout'}
-              rightBtn
-            />
+            <ScrollView style={{flex: 1}}>
+              <HRCard text='100 PUSH-UP CHALLENGE' colors={['#FC5F69', '#FF9166']} start={[0, 1]} end={[1, 0]} iconName='timer' />
+              <HRCard text='AB WORKOUT' colors={['#652297', '#9448B1']} start={[0, 1]} end={[1, 0]} iconName='table' />
+              <HRCard text='CHEST WORKOUT' colors={['#00BDBB', '#0AE9AF']} start={[0, 1]} end={[1, 0]} />
+              <HRCard text='ARM WORKOUT' colors={['#B01758', '#EC6393']} start={[0, 1]} end={[1, 0]} />
+            </ScrollView>
           </View>
-        </ScrollView>
       </HRContainerGradient>
     );
   }
@@ -58,7 +39,7 @@ export default class ProfileScreen extends React.Component {
 const styles = StyleSheet.create({
   title: {
     justifyContent: 'center',
-    borderBottomWidth: 2,
+    borderBottomWidth: 3,
     borderBottomColor: '#F3F3F3',
     paddingBottom: 30
   },

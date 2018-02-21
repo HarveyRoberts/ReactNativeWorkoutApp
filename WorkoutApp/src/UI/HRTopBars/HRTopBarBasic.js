@@ -9,14 +9,17 @@ export default class HRTopBarBasic extends Component {
      * leftIconName: The name of the left icon
      * leftIconSize: The size of the left icon
      * leftIconColor: The color of the left icon
+     * leftIconStyle: The style of the left icon
      * onPressRightIcon: The press event for the right icon
      * rightIconName: The name of the right icon
      * rightIconSize: The size of the right icon
      * rightIconColor: The color of the right icon
+     * rightIconStyle: The style of the right icon
      * title: The title of the header
      * bgColor: Background color of the header
      * borderBottomColor: The border width of the header
      */
+
   render() {
     return (
       <View 
@@ -31,6 +34,7 @@ export default class HRTopBarBasic extends Component {
       >
           <TouchableOpacity
           onPress={this.props.onPressLeftIcon}
+          style={this.props.leftIconStyle}
           >
             <Icon
               name={this.props.leftIconName}
@@ -41,6 +45,7 @@ export default class HRTopBarBasic extends Component {
           <Text style={styles.title}>{this.props.title}</Text>
           <TouchableOpacity
             onPress={this.props.onPressRightIcon}
+            style={this.props.rightIconStyle}
           >
             <Icon
               name={this.props.rightIconName}

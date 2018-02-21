@@ -17,17 +17,11 @@ export default class PerformanceScreen extends React.Component {
         <ScrollView
           style={{
             flex: 1,
-            backgroundColor: 'white'
+            backgroundColor: 'white',
+            paddingTop: 30
           }}
-        >  
-        <HRHexagon style={{ alignSelf: 'center' }} color='#FF4141' height='75' width='75' > 
-          <Svg.Circle 
-            cx="50"
-            cy="50"
-            r="25"
-            fill="white"
-          />
-          </HRHexagon>
+        >
+        <HRHexagon style={{ alignSelf: 'center' }} color='#FF4141' height='75' width='75' />
         <View style={styles.levelTextContainer} >
           <Text style={styles.levelText} >Level 6</Text>
         </View>

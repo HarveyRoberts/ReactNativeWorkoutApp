@@ -4,10 +4,36 @@ import HRContainerGradient from '../UI/HRContainers/HRContainerGradient';
 import HRListItem from '../UI/HRLists/HRListItems/HRListItem';
 
 export default class ProfileScreen extends React.Component {
+
+  state={ show: false };
+
+  
+  showItem() {
+    if (this.state.show) {
+      return (
+        <HRListItem title={'SHOW '} secondTitle="YEAHH" />
+      );
+    }
+    return null;
+  }
+
   render() {
     return (
       //Added padding to the top to leave space for header
       //since the header is in position absolute
+      <ScrollView 
+      style={{
+        flex: 1,
+      }}
+      scrollEventThrottle={2}
+      onScroll={event => {
+        if (event.nativeEvent.contentOffset.y > 180) {
+          !this.state.show ? this.setState({ show: true }) : null;
+        } else {
+          this.state.show ? this.setState({ show: false }) : null;
+        }
+      }}
+      >
         <HRContainerGradient
           colors={['#0AB3E4', '#26EDA0']} 
           start={[1, 0]}
@@ -26,10 +52,11 @@ export default class ProfileScreen extends React.Component {
             </View>
           </View>
           <Text style={styles.profileUsersName}>{'Harvey\nRoberts'}</Text>
-          <ScrollView
+          <View
             style={{
               flex: 1,
               backgroundColor: 'white',
+              height: 500,
               marginTop: 20,
               paddingTop: 15
             }}
@@ -41,8 +68,11 @@ export default class ProfileScreen extends React.Component {
               secondTitleWidth={'50%'}
             />
             <HRListItem title={'Birthday:'} secondTitle="28/04/1998" />
-          </ScrollView>
+            {this.showItem()}
+          </View>
         </HRContainerGradient>
+      </ScrollView>
+        
     );
   }
 }
@@ -68,17 +98,16 @@ const styles = StyleSheet.create({
   outerProfileCircle: {
     marginBottom: 10,
     borderRadius: 150,
-    backgroundColor: 'white',
+    backgroundColor: '#9FE6ED',
     width: 155,
     height: 155,
     alignSelf: 'center',
     alignItems: 'center',
-    opacity: 0.6,
     justifyContent: 'center'
   },
   profileCircle: {
     borderRadius: 150,
-    backgroundColor: 'white',
+    backgroundColor: '#D9F6F7',
     width: 135,
     height: 135,
     alignSelf: 'center',
@@ -87,7 +116,8 @@ const styles = StyleSheet.create({
   profileImage: {
     height: 120,
     width: 120,
-    alignSelf: 'center'
+    alignSelf: 'center',
+    opacity: 0.6
   },
   profileUsersName: {
     color: 'white',

@@ -10,7 +10,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default class TabBar extends Component {
 
-  state={ icons: ['home', 'format-list-numbers', '', 'trophy-award', 'account'] };
+  state={ icons: ['home', '', /*'trophy-award',*/ 'account'] };
 
 showText(route, color, currentIndex, index) {
     if (route.routeName !== 'DoWorkout') {

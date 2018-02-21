@@ -5,6 +5,7 @@ import WorkoutsScreen from './Main/WorkoutsScreen';
 import PerformanceScreen from './Main/PerformanceScreen';
 import ProfileScreen from './Main/ProfileScreen';
 import DoWorkoutScreen from './Main/DoWorkoutScreen';
+import EditWorkout from './Main/EditWorkout';
 import HRTabBar from './UI/HRTabBars/HRTabBar';
 import HRTopBarWithTabsNonReusable from './UI/HRTopBars/HRTopBarWithTabsNonReusable';
 import HRTopBarWithTabs from './UI/HRTopBars/HRTopBarWithTabs';
@@ -41,38 +42,16 @@ const Navigator = TabNavigator({
 
 
     ///////////////
-    //WORKOUTS PAGE
-    ///////////////
-    Workouts: {
-        screen: StackNavigator({
-            Workouts: {
-                screen: WorkoutsScreen
-            }
-        },
-        // Configuration of the workouts stack bar
-        {
-            navigationOptions: {
-                header: <HRTopBarBasic 
-                    title='Workouts' 
-                    bgColor='transparent'
-                />
-            }
-        }
-        ),
-    },
-
-
-    ///////////////
     //DO WORKOUT PAGE
     ///////////////
     DoWorkout: {
-        screen: DoWorkoutScreen,
+        screen: WorkoutsScreen,
     },
 
     ///////////////
     //PERFORMANCE PAGE
     ///////////////
-    Perf: {
+    /*Perf: {
         screen: TabNavigator({
             General: {
                 screen: PerformanceScreen
@@ -97,7 +76,7 @@ const Navigator = TabNavigator({
             swipeEnabled: true
         }
         ),
-    },
+    },*/
 
 
     ///////////////

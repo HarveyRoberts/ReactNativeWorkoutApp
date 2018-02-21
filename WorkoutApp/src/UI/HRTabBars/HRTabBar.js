@@ -13,7 +13,7 @@ export default class TabBar extends Component {
   state={ icons: ['home', '', /*'trophy-award',*/ 'account'] };
 
 showText(route, color, currentIndex, index) {
-    if (route.routeName !== 'DoWorkout') {
+    if (route.routeName !== 'Workout') {
         return (
           <View>
             <Icon 

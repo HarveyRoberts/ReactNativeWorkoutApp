@@ -44,8 +44,20 @@ const Navigator = TabNavigator({
     ///////////////
     //DO WORKOUT PAGE
     ///////////////
-    DoWorkout: {
-        screen: WorkoutsScreen,
+    Workout: {
+        screen: StackNavigator({
+            Workouts: {
+                screen: WorkoutsScreen
+            },
+            DoWorkout: {
+                screen: DoWorkoutScreen
+            },
+        },
+        {
+            navigationOptions: {
+                headerTitle: 'Choose Your Workout' 
+            }
+        })
     },
 
     ///////////////

@@ -1,10 +1,11 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { LinearGradient } from 'expo';
 
 const HRCard = props => (
     /**PROPS:
+     * onPress: on press event of the container
      * style: style of the container
      * colors: colors of the gradient container
      * start: position of the first color of the grdient container
@@ -15,22 +16,24 @@ const HRCard = props => (
      * iconColor: color of the icon
      * text: text content of the text
      */
-    <LinearGradient 
-        style={[styles.container, props.style]}
-        colors={props.colors}
-        start={props.start}
-        end={props.end}
-    >
-        <View style={styles.innerCircle}>
-            <Icon 
-            style={[styles.icon, props.iconStyle]} 
-            name={props.iconName || 'dumbbell'}
-            size={props.iconSize || 55}
-            color={props.iconColor || 'white'}
-            />
-        </View>
-        <Text style={styles.text}>{props.text}</Text>
-    </LinearGradient>
+    <TouchableOpacity onPress={props.onPress}>
+        <LinearGradient 
+                style={[styles.container, props.style]}
+                colors={props.colors}
+                start={props.start}
+                end={props.end}
+        >
+                <View style={styles.innerCircle}>
+                    <Icon 
+                    style={[styles.icon, props.iconStyle]} 
+                    name={props.iconName || 'dumbbell'}
+                    size={props.iconSize || 55}
+                    color={props.iconColor || 'white'}
+                    />
+                </View>
+                <Text style={styles.text}>{props.text}</Text>
+            </LinearGradient>
+    </TouchableOpacity>  
 );
 
 const styles = StyleSheet.create({

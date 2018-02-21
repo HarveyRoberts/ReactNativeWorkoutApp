@@ -14,57 +14,46 @@ export default class ProfileScreen extends React.Component {
         //since the header is in position absolute
         style={{ flex: 1 }}
       >
-          <View
+          <ScrollView
           style={{
             backgroundColor: 'white',
-            paddingTop: 50,
+            paddingTop: 10,
             flex: 1 
           }}
           >
-            <View style={styles.title}>
-              <Text style={styles.titleText}>Choose your workout</Text>
-            </View>
-            <ScrollView style={{flex: 1}}>
-              <HRCard text='100 PUSH-UP CHALLENGE' colors={['#FC5F69', '#FF9166']} start={[0, 1]} end={[1, 0]} iconName='timer' />
-              <HRCard text='AB WORKOUT' colors={['#652297', '#9448B1']} start={[0, 1]} end={[1, 0]} iconName='table' />
-              <HRCard text='CHEST WORKOUT' colors={['#00BDBB', '#0AE9AF']} start={[0, 1]} end={[1, 0]} />
-              <HRCard text='ARM WORKOUT' colors={['#B01758', '#EC6393']} start={[0, 1]} end={[1, 0]} />
-            </ScrollView>
-          </View>
+              <HRCard 
+              text='100 PUSH-UP CHALLENGE' 
+              colors={['#FC5F69', '#FF9166']} 
+              start={[0, 1]} 
+              end={[1, 0]} 
+              iconName='timer'
+              onPress={() => { this.props.navigation.navigate('DoWorkout'); }}
+              />
+              <HRCard 
+              text='AB WORKOUT' 
+              colors={['#652297', '#9448B1']} 
+              start={[0, 1]} 
+              end={[1, 0]} 
+              iconName='table' 
+              onPress={() => { this.props.navigation.navigate('DoWorkout'); }}
+              />
+              <HRCard 
+              text='CHEST WORKOUT' 
+              colors={['#00BDBB', '#0AE9AF']} 
+              start={[0, 1]} 
+              end={[1, 0]} 
+              onPress={() => { this.props.navigation.navigate('DoWorkout'); }}
+              />
+              <HRCard 
+              text='ARM WORKOUT' 
+              colors={['#B01758', '#EC6393']} 
+              start={[0, 1]} 
+              end={[1, 0]} 
+              onPress={() => { this.props.navigation.navigate('DoWorkout'); }}
+              />
+          </ScrollView>
       </HRContainerGradient>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  title: {
-    justifyContent: 'center',
-    borderBottomWidth: 3,
-    borderBottomColor: '#F3F3F3',
-    paddingBottom: 30
-  },
-  titleText: {
-    color: 'grey',
-    fontSize: 22,
-    alignSelf: 'center'
-  },
-  listItem: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 4,
-    marginBottom: 4,
-    paddingLeft: 20,
-    borderBottomWidth: 2,
-    borderBottomColor: '#F3F3F3'
-  },
-  listItemName: {
-    marginTop: 18,
-    fontSize: 18
-  },
-  listItemPressToWorkoutText: {
-    fontSize: 15,
-    letterSpacing: 0,
-    textAlign: 'center',
-    color: '#efefef'
-  }
-});

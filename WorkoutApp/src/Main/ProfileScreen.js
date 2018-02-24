@@ -60,7 +60,7 @@ export default class ProfileScreen extends React.Component {
               marginTop: 20,
               paddingTop: 15
             }}
-          >
+          >                 
             <HRListItem title={'Name:'} secondTitle="Harvey" />
             <HRListItem
               title={'Email:'}

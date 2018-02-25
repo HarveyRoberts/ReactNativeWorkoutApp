@@ -1,9 +1,10 @@
 import React from 'react';
-import { Animated, PanResponder, Text, ScrollView, View, Dimensions } from 'react-native';
+import { Animated, PanResponder, StyleSheet, Text, ScrollView, View, Dimensions } from 'react-native';
 
 const SCREEN_WIDTH = Dimensions.get('window').width; 
-const SWIPE_THRESHOLD = SCREEN_WIDTH * 0.25;
+const SWIPE_THRESHOLD = SCREEN_WIDTH * 0.5;
 
+const xOffset = new Animated.Value(0);
 export default class HRCarousel extends React.Component {
     /**PROPS:
      * data: the list of card information that we want to render
@@ -83,7 +84,7 @@ export default class HRCarousel extends React.Component {
                 return (
                     <Animated.View key={card.id} style={this.animatedStyle()} {...this.panResponder.panHandlers}>
                     {this.props.renderCard(card)}
-                </Animated.View>
+                    </Animated.View>
                 );
             } 
                 return (
@@ -96,13 +97,21 @@ export default class HRCarousel extends React.Component {
 
     render() {
         return (
-            <ScrollView>
+            <ScrollView >
+
                 {this.renderCards()}
-            </ScrollView>
+        </ScrollView>
         );
     }
 }
 
-/*const styles = StyleSheet.create({
-
-});*/
+const styles = StyleSheet.create({
+    scrollView: {
+      flexDirection: 'row',
+      //paddingLeft: SCREEN_WIDTH * 0.15,
+    },
+    scrollPage: {
+      width: SCREEN_WIDTH //* 0.7,
+    }
+  });
+  

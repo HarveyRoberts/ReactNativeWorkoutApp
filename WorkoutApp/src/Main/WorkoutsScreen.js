@@ -16,9 +16,16 @@ const DATA = [
   { id: 3, title: 'Arm challenge', bestScore: 89, description: 'This workout is garantied a big challenge', bgImage: { uri: 'https://media.defense.gov/2012/Nov/29/2000093493/780/780/0/120425-F-WM587-159w.JPG' }, colors: ['#734DEE', '#5325ea'], iconName: 'timer' }
 ];
 
-export default class ProfileScreen extends React.Component {
+export default class WorkoutsScreen extends React.Component {
+
+  loadWorkout(workout) {
+    console.log('hi there: ', workout.id);
+    this.props.navigation.navigate('DoWorkout');
+  }
+
   //Function that returns what we want to render as a card
-  renderCard(item) {
+  //passing in the self variable that refers to this component
+  renderCard(item, self) {
     return (
       <View style={{ width: '100%' }}>
         <HRCardHorizontal
@@ -28,7 +35,6 @@ export default class ProfileScreen extends React.Component {
         start={[0, 1]} 
         end={[1, 0]} 
         iconName={item.iconName}
-        onPress={() => { this.props.navigation.navigate('DoWorkout'); }}
         />
         <View style={styles.bottomSection} >
           <View style={styles.textContainer}>
@@ -43,6 +49,9 @@ export default class ProfileScreen extends React.Component {
           roundness={50} 
           textColor='white' 
           width={SCREEN_WIDTH * 0.53}
+          //getting self (ie this) thanks to the props because the this variable 
+          //would be the carousel component otherwise
+          onPress={() => { self.props.navigation.navigate('DoWorkout', {workout: item}); }}
           >
           Workout
           </HRBtnGradient>
@@ -59,14 +68,18 @@ export default class ProfileScreen extends React.Component {
         end={[0, 1]}
         //Added padding to the top to leave space for header
         //since the header is in position absolute
-        style={{ flex: 1 }}
+        style={{ flex: 1}}
       >
-        <View style={{ flex: 1, backgroundColor: 'white' }}>
-        <View style={styles.arrowsContainer}>
+
+        <View style={{ flex: 1, backgroundColor: 'white', paddingTop: SCREEN_HEIGHT * 0.1  }}>
+          <View style={styles.arrowsContainer}>
             <Icon color='grey' size={SCREEN_WIDTH * 0.13} name='chevron-left' style={{ alignSelf: 'center' }} />
             <Icon color='grey' size={SCREEN_WIDTH * 0.13} name='chevron-right' style={{ alignSelf: 'center' }} />
           </View>
-          <HRCarousel2 data={DATA} renderCard={this.renderCard} />
+          {/*defining self as this so that we can access this.props.navigation 
+          inside the renderCard function (the this varaible would be the carousel 
+          component otherwise*/}
+          <HRCarousel2 data={DATA} self={this} renderCard={this.renderCard} />
         </View>
       </HRContainerGradient>
     );

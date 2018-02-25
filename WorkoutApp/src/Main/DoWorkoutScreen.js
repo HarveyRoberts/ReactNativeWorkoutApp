@@ -4,19 +4,14 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { LinearGradient } from 'expo';
 
 export default class DoWorkoutScreen extends React.Component {
-
-    static navigationOptions = {
-        tabBarVisible: false
-    }
-
     render() {
         return (
             <LinearGradient style={styles.container} colors={['#1c3e51', '#1F3445']} > 
                 <View style={styles.topSection}>
                     {/*Invisible icon to make placement with flex easier*/}
                     <Icon name="window-close" size={30} style={{ opacity: 0 }} />
-                    <Text style={styles.title}>My Workout 1</Text>
-                    <TouchableOpacity onPress={() => { this.props.navigation.navigate('Home'); }}>
+                    <Text style={styles.title}>{this.props.navigation.state.params ? this.props.navigation.state.params.workout.title : 'noo'}</Text>
+                    <TouchableOpacity onPress={() => { this.props.navigation.goBack(); }}>
                         <Icon name="window-close" size={30} color="white" />
                     </TouchableOpacity>
                 </View>

@@ -10,7 +10,6 @@ export default class App extends React.Component {
       colors={['#009ee8', '#16ff9e']} 
       start={[1, 0]}
       end={[0, 1]}
-      style={styles.container}
       >
         {/*Since Navigator returns a component, the component will*/}
         {/*correspond to the current selected component in the navigator*/}
@@ -20,9 +19,3 @@ export default class App extends React.Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-   container: {
-      //paddingTop: 30
-  }
-});

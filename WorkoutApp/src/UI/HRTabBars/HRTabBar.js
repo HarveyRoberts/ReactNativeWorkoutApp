@@ -23,7 +23,6 @@ showText(route, color, currentIndex, index) {
             style={styles.doWorkoutTabIcon} 
             />
             <Text style={[styles.tabText, { color }]}>
-                {/* I want to display the navigationOptions.title here*/}
                 {route.routeName}
             </Text>
           </View>

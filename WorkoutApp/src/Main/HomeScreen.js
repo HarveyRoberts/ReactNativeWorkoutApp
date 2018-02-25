@@ -1,7 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, Animated } from 'react-native';
+import { NavigationActions } from 'react-navigation';
+
 import HRBtn from '../UI/HRButtons/HRBtn';
 
+const navigateAction = NavigationActions.navigate({
+    routeName: 'DoWorkout',
+  
+    params: {name: 'john'},
+  
+    action: NavigationActions.navigate({ routeName: 'SubProfileRoute' }),
+  });
 
 export default class HomeScreen extends React.Component {
 
@@ -20,9 +29,6 @@ export default class HomeScreen extends React.Component {
         ).start();
     }
 
-    loadWorkout() {
-        this.props.navigation.navigate('DoWorkout');
-    }
 
     render() {
       return (
@@ -45,7 +51,7 @@ export default class HomeScreen extends React.Component {
                                 alignSelf={'center'} 
                                 height={42}
                                 style={styles.doWorkoutBtn}
-                                onPress={() => { this.props.navigation.navigate('DoWorkout'); }}
+                                onPress={() => this.props.navigation.navigate("DoWorkout", {Workout:'workout'})}
                             >
                                 Do Workout
                             </HRBtn>

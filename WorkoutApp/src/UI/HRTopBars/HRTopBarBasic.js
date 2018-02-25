@@ -42,7 +42,16 @@ export default class HRTopBarBasic extends Component {
               color={this.props.leftIconColor}
             />
           </TouchableOpacity>
-          <Text style={styles.title}>{this.props.title}</Text>
+          <Text 
+            style={[
+              styles.title, 
+              {
+              color: this.props.titleColor || '#B9FCFE',
+              }
+            ]}
+          >
+            {this.props.title}
+          </Text>
           <TouchableOpacity
             onPress={this.props.onPressRightIcon}
             style={this.props.rightIconStyle}
@@ -73,7 +82,6 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 21,
-    color: '#B9FCFE',
     marginTop: 5
   },
   raised: {

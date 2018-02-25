@@ -2,7 +2,6 @@ import React from 'react';
 import { TouchableOpacity, Dimensions, Text, StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo';
 
-const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 const HRBtn = props => (

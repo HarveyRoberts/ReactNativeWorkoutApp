@@ -27,7 +27,9 @@ export default class HRCarousel2 extends Component {
     //passed as a prop
     return this.props.data.map(card => (
           <Card index={card.id} key={card.id}>
-          {this.props.renderCard(card)}
+          {/*passing a self prop so that we can access the this variable
+          of the parent component if needed*/}
+          {this.props.renderCard(card, this.props.self)}
           </Card>
       ));
   }

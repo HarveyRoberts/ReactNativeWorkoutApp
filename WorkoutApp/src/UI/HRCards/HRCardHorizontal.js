@@ -1,11 +1,15 @@
 import React from 'react';
-import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, View, Image, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { LinearGradient } from 'expo';
+
+const SCREEN_WIDTH = Dimensions.get('window').width;
+const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 const HRCard = props => (
     /**PROPS:
      * style: style of the container
+     * bgImage: source of the image
      * colors: colors of the gradient container
      * start: position of the first color of the grdient container
      * end: position of the last color of the grdient container
@@ -16,64 +20,89 @@ const HRCard = props => (
      * text: text content of the text
      */
     <LinearGradient 
-            style={[styles.container, props.style]}
-            colors={props.colors}
-            start={props.start}
-            end={props.end}
+        style={[styles.container, props.style]}
+        colors={props.colors}
+        start={props.start}
+        end={props.end}
     >
-               {props.children} 
-
+            {props.children} 
+            <View style={styles.bgCircle} />
             <View style={styles.circle}>
                 <Icon 
                 style={[styles.icon, props.iconStyle]} 
                 name={props.iconName || 'dumbbell'}
-                size={props.iconSize || 68}
+                size={props.iconSize || SCREEN_WIDTH * 0.16}
                 color={props.iconColor || 'white'}
                 />
             </View>
-            <Text style={styles.text}>{props.text}</Text>
+            <View style={styles.textContainer}>
+                <Text style={styles.text}>{props.text}</Text>
+            </View>
+            <Image
+            style={styles.bgImage}
+            source={props.bgImage}
+            />
         </LinearGradient>
 );
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: '2.5%',
-        marginBottom: '2.5%',
-        width: '60%',
-        padding: '5%',
-        paddingTop: '15%',
-        paddingBottom: '7%',
-        alignContent: 'center',
+        marginTop: SCREEN_HEIGHT * 0.04,
+        width: SCREEN_WIDTH * 0.63,
         alignSelf: 'center',
-        alignItems: 'center',
         justifyContent: 'space-between',
-        elevation: 9,
+        height: SCREEN_HEIGHT * 0.45,
+        elevation: 11,
         shadowColor: 'black',
-        shadowOpacity: 0.3,
-        shadowRadius: 4,
+        shadowOpacity: 0.4,
+        shadowRadius: 9,
+        shadowOffset: { width: 0, height: 4 },
         borderRadius: 10
     },
-    text: {
-        fontSize: 25,
-        width: '70%',
-        textAlign: 'center',
+    bgImage: {
+        flex: 1,
+        height: '100%',
+        width: '100%',
+        resizeMode: 'cover',
+        position: 'absolute',
+        borderRadius: 10,
+        opacity: 0.08
+    },
+    bgCircle: {
+        backgroundColor: 'black',
+        opacity: 0.05,
+        borderRadius: 500,
         alignSelf: 'center',
-        color: 'white',
-        margin: '10%',
-        marginTop: '25%'
-        //fontFamily: 'sans-serif'
+        width: SCREEN_WIDTH * 0.28,
+        height: SCREEN_WIDTH * 0.28,
+        marginTop: SCREEN_HEIGHT * 0.065,
+        position: 'absolute'
     },
     circle: {
         borderWidth: 3,
         borderColor: 'white',
-        borderRadius: 50,
+        borderRadius: 500,
         alignSelf: 'center',
         justifyContent: 'center',
-        width: 95,
-        height: 95,
+        marginTop: SCREEN_HEIGHT * 0.08,
+        width: SCREEN_WIDTH * 0.23,
+        height: SCREEN_WIDTH * 0.23,
     },
     icon: {
-        alignSelf: 'center'
+        alignSelf: 'center',
+    },
+    textContainer: {
+        justifyContent: 'center',
+        width: '70%',
+        height: SCREEN_HEIGHT * 0.12,
+        marginBottom: SCREEN_HEIGHT * 0.08,
+        alignSelf: 'center',
+    },
+    text: {
+        fontSize: SCREEN_WIDTH * 0.070,
+        textAlign: 'center',
+        color: 'white',
+        //fontFamily: 'sans-serif'
     }
 });
 

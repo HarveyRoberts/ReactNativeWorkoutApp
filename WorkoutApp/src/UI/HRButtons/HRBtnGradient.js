@@ -1,6 +1,9 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, Dimensions, Text, StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo';
+
+const SCREEN_WIDTH = Dimensions.get('window').width;
+const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 const HRBtn = props => (
     /* See HRBtn for details */
@@ -17,7 +20,7 @@ const HRBtn = props => (
                 { 
                     alignSelf: props.alignSelf, 
                     borderRadius: props.roundness,
-                    width: props.width 
+                    width: props.width
                 }
             ]}
             /* Passed the colors of the gradient through props */
@@ -53,37 +56,37 @@ const styles = StyleSheet.create({
     },
     /* XL prop styles */
     ButtonXL: {
-        height: 62
+        height: SCREEN_HEIGHT * 0.1
     },
     TextXL: {
-        fontSize: 25,
+        fontSize: SCREEN_HEIGHT * 0.04,
         marginLeft: '14%',
         marginRight: '14%'
     },
     /* Large prop styles */
     ButtonBig: {
-        height: 50
+        height: SCREEN_HEIGHT * 0.09
     },
     TextBig: {
-        fontSize: 21,
+        fontSize: SCREEN_HEIGHT * 0.036,
         marginLeft: '11%',
         marginRight: '11%'
     },
     /* Medium prop styles (set by default) */
     ButtonMedium: {
-        height: 44
+        height: SCREEN_HEIGHT * 0.075
     },
     TextMedium: {
-        fontSize: 18,
+        fontSize: SCREEN_HEIGHT * 0.032,
         marginLeft: '8%',
         marginRight: '8%'
     },
     /* Small prop styles */
     ButtonSmall: {
-        height: 35
+        height: SCREEN_HEIGHT * 0.070
     },
     TextSmall: {
-        fontSize: 16,
+        fontSize: SCREEN_HEIGHT * 0.030,
         marginLeft: '5%',
         marginRight: '5%'
     }

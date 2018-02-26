@@ -4,7 +4,7 @@ import { Svg } from 'expo';
 
 const HRCircularProgressBar = ({
     percentage = 100,
-    blankColor = '#178788', 
+    barEmptyColor = '#178788', 
     barColor = '#09F4B8',
     fill = 'white',
     fillRadius = 46,
@@ -14,7 +14,7 @@ const HRCircularProgressBar = ({
 }) => (
     <View style={{ height, width }}>
             <Svg width={width} height={height} viewBox="0 0 100 100" preserveAspectRatio="none">
-                <Svg.Circle cx="50" cy="50" r="50" fill={blankColor} />
+                <Svg.Circle cx="50" cy="50" r="50" fill={barEmptyColor} />
                 <Svg.Path 
                     d={`M50 50 L50 0 ${createProgressBar(percentage)} Z`}
                     fill={barColor}

@@ -34,7 +34,7 @@ export default class HRTopBarBasic extends Component {
       >
           <TouchableOpacity
           onPress={this.props.onPressLeftIcon}
-          style={this.props.leftIconStyle}
+          style={this.props.leftIconStyle || styles.icon}
           >
             <Icon
               name={this.props.leftIconName}
@@ -54,7 +54,7 @@ export default class HRTopBarBasic extends Component {
           </Text>
           <TouchableOpacity
             onPress={this.props.onPressRightIcon}
-            style={this.props.rightIconStyle}
+            style={this.props.rightIconStyle || styles.icon}
           >
             <Icon
               name={this.props.rightIconName}
@@ -69,7 +69,7 @@ export default class HRTopBarBasic extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 30,
+    paddingTop: 35,
     paddingLeft: 10,
     paddingRight: 10,
     paddingBottom: 20,
@@ -89,5 +89,8 @@ const styles = StyleSheet.create({
     shadowOffset: { height: 4 },
     shadowColor: 'black',
     shadowOpacity: 0.4
+  },
+  icon: {
+    paddingTop: 5
   }
 });

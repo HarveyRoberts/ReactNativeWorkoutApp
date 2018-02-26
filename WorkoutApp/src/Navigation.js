@@ -61,6 +61,12 @@ const Navigator = TabNavigator({
                             borderBottomColor='transparent'
                             bgColor='transparent'
                             titleColor='#707070'
+                            leftIconName='format-align-left'
+                            leftIconColor='#898989'
+                            leftIconSize={30}
+                            rightIconName='format-align-left'
+                            rightIconColor='transparent'
+                            rightIconSize={30}
                         />
                     }
                 })

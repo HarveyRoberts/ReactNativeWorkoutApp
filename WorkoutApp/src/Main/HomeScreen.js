@@ -2,10 +2,11 @@ import React from 'react';
 import { StyleSheet, Text, View, ScrollView, Animated } from 'react-native';
 
 import HRBtn from '../UI/HRButtons/HRBtn';
+import HRGuideline from '../UI/HRSvgs/HRGuideline';
 
 export default class HomeScreen extends React.Component {
 
-    state= { opacity: new Animated.Value(0) }
+    state= { opacity: new Animated.Value(0), currentRoute: this.props.navigation.state.routeName }
 
     componentDidMount() {
         //the action that executes the animation
@@ -18,6 +19,7 @@ export default class HomeScreen extends React.Component {
                 duration: 2000
             }
         ).start();
+        console.log(this.state.currentRoute);
     }
 
 
@@ -33,6 +35,8 @@ export default class HomeScreen extends React.Component {
                         <Text style={styles.centerTextSmall}>Current Performance</Text>
                         <Text style={styles.centerTextBig}>256</Text>
                         <View>
+                            
+                        {/*<HRGuideline />*/}
                             <HRBtn 
                                 small 
                                 textColor={'white'} 
@@ -42,7 +46,7 @@ export default class HomeScreen extends React.Component {
                                 alignSelf={'center'} 
                                 height={42}
                                 style={styles.doWorkoutBtn}
-                                onPress={() => this.props.navigation.navigate("DoWorkout", {Workout:'workout'})}
+                                onPress={() => this.props.navigation.navigate('DoWorkout', { Workout: 'workout' })}
                             >
                                 Do Workout
                             </HRBtn>

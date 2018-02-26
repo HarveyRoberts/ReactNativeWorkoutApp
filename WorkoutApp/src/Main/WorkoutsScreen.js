@@ -12,7 +12,7 @@ const SCREEN_HEIGHT = Dimensions.get('window').height;
 const DATA = [
   { id: 0, title: '100 Push-up challenge', bestScore: 256, description: 'You have to do 100 pushups as fast as possible', bgImage: { uri: 'https://c.pxhere.com/photos/bc/e5/fitness_weight_man_guy_male-155257.jpg!d' }, colors: ['#FC5F69', '#FF9166'], iconName: 'timer' },
   { id: 1, title: 'Bring it up', bestScore: 512, description: 'Can you last the hole track?', bgImage: { uri: 'https://c.pxhere.com/photos/bc/1b/african_ethnicity_beats_black_guy_headphones_hearing_listen_man-963087.jpg!d' }, colors: ['#473CC7', '#347bed'], iconName: 'dumbbell' },
-  { id: 2, title: 'Abs crusher', bestScore: 436, description: 'How far can you go?', bgImage: { uri: 'https://c.pxhere.com/photos/bc/e5/fitness_weight_man_guy_male-155257.jpg!d' }, colors: ['#00b79f', '#00e0c2'], iconName: 'table' },
+  { id: 2, title: 'Abs crusher', bestScore: 436, description: 'How far can you go?', bgImage: { uri: 'https://static.pexels.com/photos/38630/bodybuilder-weight-training-stress-38630.jpeg' }, colors: ['#00b79f', '#00e0c2'], iconName: 'table' },
   { id: 3, title: 'Arm challenge', bestScore: 89, description: 'This workout is garantied a big challenge', bgImage: { uri: 'https://media.defense.gov/2012/Nov/29/2000093493/780/780/0/120425-F-WM587-159w.JPG' }, colors: ['#734DEE', '#5325ea'], iconName: 'timer' }
 ];
 

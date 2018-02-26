@@ -71,7 +71,7 @@ export default class WorkoutsScreen extends React.Component {
         style={{ flex: 1}}
       >
 
-        <View style={{ flex: 1, backgroundColor: 'white', paddingTop: SCREEN_HEIGHT * 0.1  }}>
+        <View style={{ flex: 1, backgroundColor: '#EEECF1', paddingTop: SCREEN_HEIGHT * 0.1  }}>
           <View style={styles.arrowsContainer}>
             <Icon color='grey' size={SCREEN_WIDTH * 0.13} name='chevron-left' style={{ alignSelf: 'center' }} />
             <Icon color='grey' size={SCREEN_WIDTH * 0.13} name='chevron-right' style={{ alignSelf: 'center' }} />

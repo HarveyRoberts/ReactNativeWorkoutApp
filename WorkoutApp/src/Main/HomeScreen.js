@@ -1,16 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, Animated } from 'react-native';
-import { NavigationActions } from 'react-navigation';
 
 import HRBtn from '../UI/HRButtons/HRBtn';
-
-const navigateAction = NavigationActions.navigate({
-    routeName: 'DoWorkout',
-  
-    params: {name: 'john'},
-  
-    action: NavigationActions.navigate({ routeName: 'SubProfileRoute' }),
-  });
 
 export default class HomeScreen extends React.Component {
 
@@ -86,7 +77,7 @@ const styles = StyleSheet.create({
     },
     bottomContainer: {
         marginTop: 30,
-        backgroundColor: 'white',
+        backgroundColor: '#EEECF1',
         height: 800,
         width: '300%',
         borderTopLeftRadius: 800,

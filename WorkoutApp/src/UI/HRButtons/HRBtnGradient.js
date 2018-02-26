@@ -3,6 +3,7 @@ import { TouchableOpacity, Dimensions, Text, StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo';
 
 const SCREEN_HEIGHT = Dimensions.get('window').height;
+const SCREEN_WIDTH = Dimensions.get('window').width;
 
 const HRBtn = props => (
     /* See HRBtn for details */
@@ -18,16 +19,16 @@ const HRBtn = props => (
                 props.medium && styles.ButtonMedium,
                 { 
                     alignSelf: props.alignSelf, 
-                    borderRadius: props.roundness,
-                    width: props.width
+                    borderRadius: props.roundness || 500,
+                    width: props.width || (SCREEN_WIDTH * 0.5)
                 }
             ]}
             /* Passed the colors of the gradient through props */
-            colors={props.colors}
+            colors={props.colors || ['#22D9FF', '#039DEF']}
             /* Passed the start point through props */
-            start={props.start}
+            start={props.start || [1, 0]}
             /* Passed the end point through props */
-            end={props.end}
+            end={props.end || [0, 1]}
         >
             <Text 
                 style={[
@@ -36,10 +37,10 @@ const HRBtn = props => (
                     props.large && styles.TextBig, 
                     props.small && styles.TextSmall, 
                     props.medium && styles.TextMedium, 
-                    { color: props.textColor }
+                    { color: props.textColor || 'white' }
                 ]}
             >
-                {props.children}
+                {props.children || 'Button'}
             </Text>
         </LinearGradient>
     </TouchableOpacity>

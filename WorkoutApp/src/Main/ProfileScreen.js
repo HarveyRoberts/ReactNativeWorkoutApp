@@ -55,7 +55,7 @@ export default class ProfileScreen extends React.Component {
           <View
             style={{
               flex: 1,
-              backgroundColor: 'white',
+              backgroundColor: '#f4f4f4',
               height: 500,
               marginTop: 20,
               paddingTop: 15

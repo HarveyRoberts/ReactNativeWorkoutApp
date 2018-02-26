@@ -2,8 +2,12 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { LinearGradient } from 'expo';
+import HRCircularProgressBar from '../UI/HRProgressBars/HRCircularProgressBar';
+import HRBtnGradient from '../UI/HRButtons/HRBtnGradient';
 
 export default class DoWorkoutScreen extends React.Component {
+    state={ workoutCompletion: 20, currentExercice: 'Push-ups', currentExerciceAmount: 15 };
+
     render() {
         return (
             <LinearGradient style={styles.container} colors={['#1c3e51', '#1F3445']} > 
@@ -16,11 +20,14 @@ export default class DoWorkoutScreen extends React.Component {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.percentageContainer}>
-                    <View style={styles.percentageProgressCircle}>
-                        <Text style={styles.percentage}>100%</Text>
-                    </View>
+                <HRCircularProgressBar percentage={this.state.workoutCompletion} fill='#1C3A4C' >
+                        <Text style={styles.percentage}>{this.state.workoutCompletion}%</Text>
+                </HRCircularProgressBar>
                 </View>
-                <Text style={styles.exerciceTitle}>Crunches x25</Text>
+                <Text style={styles.exerciceTitle}>{this.state.currentExercice} x{this.state.currentExerciceAmount}</Text>
+                <HRBtnGradient large colors={['#09F4B8', '#03c474']} onPress={() => { this.setState({ workoutCompletion: this.state.workoutCompletion < 100 ? this.state.workoutCompletion + 2 : this.state.workoutCompletion }); }} >
+                    NEXT
+                </HRBtnGradient>
             </LinearGradient> 
         );
     }
@@ -57,23 +64,14 @@ const styles = StyleSheet.create({
         height: 200,
         width: 200
     },
-    percentageProgressCircle: {
-        borderWidth: 6,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderColor: '#0CF9B4',
-        borderRadius: 500,
-        height: 170,
-        width: 170,
-        elevation: 3
-    },
     percentage: {
-        fontSize: 57,
+        fontSize: 55,
         color: 'white',
     },
     exerciceTitle: {
         color: 'white',
-        fontSize: 40
+        fontSize: 40,
+        marginBottom: '5%'
     }
 });
 

@@ -35,8 +35,6 @@ export default class HomeScreen extends React.Component {
                         <Text style={styles.centerTextSmall}>Current Performance</Text>
                         <Text style={styles.centerTextBig}>256</Text>
                         <View>
-                            
-                        {/*<HRGuideline />*/}
                             <HRBtn 
                                 small 
                                 textColor={'white'} 

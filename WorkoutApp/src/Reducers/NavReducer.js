@@ -1,9 +1,11 @@
-import { NavigationActions } from 'react-navigation';
-import Navigator from '../Navigation';
+import AppNavigator from '../Navigation/NavigationStack';
 
-const initialState = Navigator.router.getStateForAction(NavigationActions.init);
-
-export default (state = initialState, action) => {
-    const nextState = Navigator.router.getStateForAction(action, state);
-    return nextState || state;
+const initialState = AppNavigator.router.getStateForAction(
+  AppNavigator.router.getActionForPathAndParams('Main')
+);
+const navReducer = (state = initialState, action) => {
+  const newState = AppNavigator.router.getStateForAction(action, state);
+  return newState || state;
 };
+
+export default navReducer;

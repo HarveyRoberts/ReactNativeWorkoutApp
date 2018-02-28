@@ -1,14 +1,14 @@
-import firebase from 'firebase';
-import { NavigationActions } from 'react-navigation';
+//import firebase from 'firebase';
+/*import { NavigationActions } from 'react-navigation';
 import { 
     EMAIL_CHANGED, 
     PASSWORD_CHANGED, 
     LOGIN_USER_SUCCESS, 
     LOGIN_USER_FAIL, 
     ACTIVATE_SPINNER, 
-    LOGIN_USER_OUT_SUCCESS 
+    LOGIN_USER_OUT_SUCCESS
 } from './Types';
-
+/*
 export const emailChanged = (text) => ({
         type: EMAIL_CHANGED,
         payload: text
@@ -34,7 +34,7 @@ export const logUserIn = ({ email, password }) =>
             .catch((error) => 
                 loginUserFail(dispatch, error)
             ); */
-    };
+    /*};
 
 export const logUserOut = () => (dispatch) => {
         dispatch({ type: ACTIVATE_SPINNER });
@@ -62,4 +62,4 @@ const loginUserOutSuccess = (dispatch) => {
         type: LOGIN_USER_OUT_SUCCESS
     });
 };
-
+*/

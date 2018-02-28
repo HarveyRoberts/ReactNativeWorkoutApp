@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux';
-import AuthReducer from './AuthReducer';
+/*import AuthReducer from './AuthReducer';*/
 import NavReducer from './NavReducer';
+import WorkoutsReducer from './WorkoutsReducer';
 
 const AppReducer = combineReducers({
     //All reducers
-    //Function that returns (not like Vue :p)
-    AuthReducer,
+    /*AuthReducer,*/
+    WorkoutsReducer,
     NavReducer
 });
 

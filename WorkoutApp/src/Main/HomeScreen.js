@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     },
     bottomContainer: {
         marginTop: 30,
-        backgroundColor: '#EEECF1',
+        backgroundColor: '#f4f4f4',
         height: 800,
         width: '300%',
         borderTopLeftRadius: 800,

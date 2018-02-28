@@ -1,4 +1,4 @@
-import { 
+/*import { 
     EMAIL_CHANGED, 
     PASSWORD_CHANGED, 
     LOGIN_USER_SUCCESS, 
@@ -18,11 +18,11 @@ const INIT_STATE = {
 
 /*reducer compares old state and new state*/
 /*takes in action and old state*/
-export default (state = INIT_STATE, action) => {
+/*export default (state = INIT_STATE, action) => {
     console.log(action);
     switch (action.type) {
         case EMAIL_CHANGED:
-            //need to changed the state correctly because of how JS works ^^
+            //need to changed the state correctly because of how JS works
             //basically we need to create immutable state
             //WRONG:state.email = action.payload
             //WRONG:return state
@@ -70,4 +70,4 @@ export default (state = INIT_STATE, action) => {
         default:
             return state;
     }
-};
+};*/

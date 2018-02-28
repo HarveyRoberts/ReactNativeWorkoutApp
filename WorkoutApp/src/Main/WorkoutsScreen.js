@@ -1,22 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Dimensions, Text, View, StyleSheet } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+
 import HRCardHorizontal from '../UI/HRCards/HRCardHorizontal';
 import HRContainerGradient from '../UI/HRContainers/HRContainerGradient';
 import HRCarousel2 from '../UI/HRCarousels/HRCarousel2';
 import HRBtnGradient from '../UI/HRButtons/HRBtnGradient';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 
-const DATA = [
-  { id: 0, title: '100 Push-up challenge', bestScore: 256, description: 'You have to do 100 pushups as fast as possible', bgImage: { uri: 'https://c.pxhere.com/photos/bc/e5/fitness_weight_man_guy_male-155257.jpg!d' }, colors: ['#FC5F69', '#FF9166'], iconName: 'timer' },
-  { id: 1, title: 'Bring it up', bestScore: 512, description: 'Can you last the hole track?', bgImage: { uri: 'https://c.pxhere.com/photos/bc/1b/african_ethnicity_beats_black_guy_headphones_hearing_listen_man-963087.jpg!d' }, colors: ['#473CC7', '#347bed'], iconName: 'dumbbell' },
-  { id: 2, title: 'Abs crusher', bestScore: 436, description: 'How far can you go?', bgImage: { uri: 'https://static.pexels.com/photos/38630/bodybuilder-weight-training-stress-38630.jpeg' }, colors: ['#00b79f', '#00e0c2'], iconName: 'table' },
-  { id: 3, title: 'Arm challenge', bestScore: 89, description: 'This workout is garantied a big challenge', bgImage: { uri: 'https://media.defense.gov/2012/Nov/29/2000093493/780/780/0/120425-F-WM587-159w.JPG' }, colors: ['#734DEE', '#5325ea'], iconName: 'timer' }
-];
-
-export default class WorkoutsScreen extends React.Component {
+class WorkoutsScreen extends React.Component {
 
   loadWorkout(workout) {
     console.log('hi there: ', workout.id);
@@ -51,7 +46,7 @@ export default class WorkoutsScreen extends React.Component {
           width={SCREEN_WIDTH * 0.53}
           //getting self (ie this) thanks to the props because the this variable 
           //would be the carousel component otherwise
-          onPress={() => { self.props.navigation.navigate('DoWorkout', {workout: item}); }}
+          onPress={() => { self.props.navigation.navigate('DoWorkout', { workout: item.id }); }}
           >
           Workout
           </HRBtnGradient>
@@ -68,23 +63,42 @@ export default class WorkoutsScreen extends React.Component {
         end={[0, 1]}
         //Added padding to the top to leave space for header
         //since the header is in position absolute
-        style={{ flex: 1}}
+        style={{ flex: 1 }}
       >
 
-        <View style={{ flex: 1, backgroundColor: '#EEECF1', paddingTop: SCREEN_HEIGHT * 0.1  }}>
+        <View style={{ flex: 1, backgroundColor: '#f4f4f4', paddingTop: SCREEN_HEIGHT * 0.1 }}>
+          {/*Left and right arrows*/}
           <View style={styles.arrowsContainer}>
-            <Icon color='grey' size={SCREEN_WIDTH * 0.13} name='chevron-left' style={{ alignSelf: 'center' }} />
-            <Icon color='grey' size={SCREEN_WIDTH * 0.13} name='chevron-right' style={{ alignSelf: 'center' }} />
+            <Icon 
+            color='grey' 
+            size={SCREEN_WIDTH * 0.13} 
+            name='chevron-left' 
+            style={{ alignSelf: 'center' }} 
+            />
+            <Icon 
+            color='grey' 
+            size={SCREEN_WIDTH * 0.13} 
+            name='chevron-right' 
+            style={{ alignSelf: 'center' }} 
+            />
           </View>
           {/*defining self as this so that we can access this.props.navigation 
           inside the renderCard function (the this varaible would be the carousel 
           component otherwise*/}
-          <HRCarousel2 data={DATA} self={this} renderCard={this.renderCard} />
+          <HRCarousel2 data={this.props.workouts} self={this} renderCard={this.renderCard} />
         </View>
       </HRContainerGradient>
     );
   }
 }
+
+
+const mapStateToProps = state => ({
+  workouts: state.WorkoutsReducer.workouts
+});
+
+export default connect(mapStateToProps, { })(WorkoutsScreen);
+
 
 const styles = StyleSheet.create({
     arrowsContainer: { 
